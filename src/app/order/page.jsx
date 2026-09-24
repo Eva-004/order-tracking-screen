@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Button } from "@heroui/react";
+import Link from "next/link";
 
 const OrderPage = async ({ searchParams }) => {
   const { id } = await searchParams;
@@ -60,13 +61,16 @@ const OrderPage = async ({ searchParams }) => {
           </div>
         </div>
 
-        <Button
+    <Link href={`/tracker?id=${product.id}`}>
+    <Button
+        
           size="lg"
           radius="lg"
           className="mt-6 w-full bg-black text-white font-semibold"
         >
           Track Order
         </Button>
+    </Link>
 
       </div>
     </main>
