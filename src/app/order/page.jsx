@@ -2,12 +2,11 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "@heroui/react";
 import Link from "next/link";
+import products from "@/data/data";
 
 const OrderPage = async ({ searchParams }) => {
   const { id } = await searchParams;
 
-  const res = await fetch("http://localhost:3000/data.json");
-  const products = await res.json();
 
   const product = products.find(
     (item) => item.id === Number(id)

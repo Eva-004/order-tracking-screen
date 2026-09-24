@@ -1,0 +1,14 @@
+1. First, summarize the assignment requirements in simple and short words.
+2. Give me 4 sample JSON product/order data. Each object should include:
+   id, name, image, price, status
+   Example:
+   {
+     id: 1,
+     name: "Product Name",
+     image: "/products/product-1.jpg",
+     price: 1200,
+     status: "out_for_delivery"
+   }
+3. Suggest a mobile-first UI structure using HeroUI components and React Icons.
+4. Keep the design simple, clean, black and white, and responsive.
+5. Do not write full code yet. Only explain the structure and components I should use.

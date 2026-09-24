@@ -3,12 +3,10 @@ import DeliveredNotReceived from "@/components/traking/DeliveredNotReceived";
 import NormalTracking from "@/components/traking/NormalTracking";
 import TrackingUnavailable from "@/components/traking/TrackingUnavailable";
 import React from "react";
+import products from "@/data/data";
 
 const TrackerPage = async ({ searchParams }) => {
   const { id } = await searchParams;
-
-  const res = await fetch("http://localhost:3000/data.json");
-  const products = await res.json();
 
   const product = products.find(
     (item) => item.id === Number(id)
