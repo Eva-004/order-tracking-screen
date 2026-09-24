@@ -1,36 +1,231 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Order Tracking Interface
 
-## Getting Started
+A responsive order tracking interface built with Next.js, React, Tailwind CSS, and HeroUI.
 
-First, run the development server:
+The application allows users to select an order and view its current delivery status through a tracking progress interface.
+
+## Live Demo
+
+[Live Demo URL](YOUR_DEPLOYED_URL)
+
+## GitHub Repository
+
+[GitHub Repository](YOUR_GITHUB_REPOSITORY_URL)
+
+## Features
+
+- Product/order list
+- Track Order button
+- Order tracking progress
+- Multiple order tracking states
+- Responsive mobile-first design
+- Black and white UI theme
+- Different UI for delayed and delivery issues
+- Order tracking unavailable state
+- HeroUI components for the interface
+
+## Tracking Process
+
+Clicking the **Track Order** button opens the tracking screen for the selected order.
+
+The tracking screen displays the current state of the same order.
+
+### Normal Tracking
+
+The order follows this process:
+
+```text
+Processing ✓
+     ↓
+Shipped ✓
+     ↓
+Out for Delivery ●
+     ↓
+Delivered ○
+```
+
+The progress updates according to the current order status.
+
+The tracking progress is displayed using HeroUI's `Progress` component.
+
+### Expected Delivery
+
+For an order that is currently within the expected delivery time:
+
+```text
+Expected Delivery
+
+Today, 6–8 PM
+```
+
+### Delayed
+
+If the expected delivery time has passed and the order has not been delivered:
+
+```text
+Delivery Delayed
+
+Your order is taking longer
+than expected.
+
+[Contact Support]
+```
+
+### Delivered but Not Received
+
+If the order is marked as delivered but the customer did not receive it:
+
+```text
+Delivered
+
+Marked as delivered at 4:30 PM
+
+Didn't receive your order?
+
+[Report an Issue]
+[Contact Support]
+```
+
+### Tracking Not Available
+
+For a newly placed order where tracking information is not available yet:
+
+```text
+Tracking Not Available Yet
+
+Your order has been confirmed.
+Tracking details will appear
+once your package is shipped.
+
+[View Order Details]
+```
+
+## Order Statuses
+
+The application supports the following order states:
+
+```js
+"tracking_unavailable"
+"processing"
+"shipped"
+"out_for_delivery"
+"delivered"
+"delayed"
+"delivered_not_received"
+```
+
+Example order data:
+
+```js
+{
+  id: 1,
+  name: "Product Name",
+  status: "out_for_delivery"
+}
+```
+
+## Running Process
+
+The order tracking flow works as follows:
+
+```text
+New Order
+   ↓
+Tracking Not Available
+   ↓
+Processing
+   ↓
+Shipped
+   ↓
+Out for Delivery
+   ↓
+Delivered
+```
+
+The same order is used throughout the tracking process. Its `status` determines which tracking state is displayed.
+
+For example:
+
+```js
+{
+  id: 1,
+  name: "Product Name",
+  status: "processing"
+}
+```
+
+will show the Processing state.
+
+Changing the status to:
+
+```js
+status: "shipped"
+```
+
+will show the Shipped state.
+
+Similarly:
+
+```js
+status: "out_for_delivery"
+```
+
+will show the Out for Delivery state.
+
+## Tech Stack
+
+- Next.js
+- React
+- Tailwind CSS
+- HeroUI
+- JavaScript
+
+## Setup
+
+Clone the repository:
+
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+```
+
+Go to the project directory:
+
+```bash
+cd YOUR_PROJECT_FOLDER
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the application in your browser:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build for Production
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Run the production build:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+The project is deployed and can be accessed through the live URL provided above.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The evaluator can access the application directly without running the project locally.
