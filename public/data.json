@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80",
+    "name": "Nike Air Max",
+    "price": 120
+  },
+  {
+    "id": 2,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80",
+    "name": "Classic Wrist Watch",
+    "price": 85
+  },
+  {
+    "id": 3,
+    "image": "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=500&q=80",
+    "name": "Casual T-Shirt",
+    "price": 35
+  }
+]
